@@ -21,6 +21,10 @@
         <script src="assets/js/splide.min.js"></script>
         <script src="assets/js/transition.js"></script>
         <script src="3drbench_data.js"></script>
+        <script src="3drbench_data_orientation.js"></script>
+        <script src="3drbench_data_location.js"></script>
+        <script src="3drbench_data_height.js"></script>
+        <script src="3drbench_data_multi.js"></script>
         <link rel="stylesheet" href="assets/styles/style.css">
         <link rel="stylesheet" href="assets/styles/splide.min.css">
         <!-- <link rel="stylesheet" href="assets/styles/bulma.min.css"> -->
@@ -154,7 +158,11 @@
             <h2 id="explore">Explore 3DRBench</h2>
             <p style="text-align: justify;">
                 <div class="button-container">
-                    <a href="javascript:shuffle();" class="button" id="shuffle_button" style="margin-left: 0px; margin-right: 0px">Display random</a>
+                    <a href="javascript:shuffle();" class="button" id="shuffle_button" style="margin-left: 0px;">Random</a>
+                    <a href="javascript:shuffle_orientation();" class="button" id="shuffle_button">Orientation</a>
+                    <a href="javascript:shuffle_location();" class="button" id="shuffle_button">Location</a>
+                    <a href="javascript:shuffle_height();" class="button" id="shuffle_button">Height</a>
+                    <a href="javascript:shuffle_multi();" class="button" id="shuffle_button" style="margin-right: 0px">Multi-Object</a>
                 </div>
             </p>
             <p style="text-align: justify;">
@@ -262,6 +270,38 @@
                 document.getElementById('explore_question').innerHTML = promptArr[num];
                 document.getElementById('explore_answer').innerHTML = answerArr[num];
                 document.getElementById('explore_type').innerHTML = relationArr[num];
+            }
+
+            function shuffle_orientation() {
+                var num = Math.floor(Math.random() * (imagesArrOri.length+1));
+                document.getElementById('explore_img').src = imagesArrOri[num];
+                document.getElementById('explore_question').innerHTML = promptArrOri[num];
+                document.getElementById('explore_answer').innerHTML = answerArrOri[num];
+                document.getElementById('explore_type').innerHTML = relationArrOri[num];
+            }
+
+            function shuffle_location() {
+                var num = Math.floor(Math.random() * (imagesArrLoc.length+1));
+                document.getElementById('explore_img').src = imagesArrLoc[num];
+                document.getElementById('explore_question').innerHTML = promptArrLoc[num];
+                document.getElementById('explore_answer').innerHTML = answerArrLoc[num];
+                document.getElementById('explore_type').innerHTML = relationArrLoc[num];
+            }
+
+            function shuffle_height() {
+                var num = Math.floor(Math.random() * (imagesArrHei.length+1));
+                document.getElementById('explore_img').src = imagesArrHei[num];
+                document.getElementById('explore_question').innerHTML = promptArrHei[num];
+                document.getElementById('explore_answer').innerHTML = answerArrHei[num];
+                document.getElementById('explore_type').innerHTML = relationArrHei[num];
+            }
+
+            function shuffle_multi() {
+                var num = Math.floor(Math.random() * (imagesArrMulti.length+1));
+                document.getElementById('explore_img').src = imagesArrMulti[num];
+                document.getElementById('explore_question').innerHTML = promptArrMulti[num];
+                document.getElementById('explore_answer').innerHTML = answerArrMulti[num];
+                document.getElementById('explore_type').innerHTML = relationArrMulti[num];
             }
 
             // Function to display and refresh the Carving slider
