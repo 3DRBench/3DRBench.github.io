@@ -20,6 +20,7 @@
         <script src="assets/js/mesh_viewer.js"></script>
         <script src="assets/js/splide.min.js"></script>
         <script src="assets/js/transition.js"></script>
+        <script src="3drbench_data.js"></script>
         <link rel="stylesheet" href="assets/styles/style.css">
         <link rel="stylesheet" href="assets/styles/splide.min.css">
         <!-- <link rel="stylesheet" href="assets/styles/bulma.min.css"> -->
@@ -56,7 +57,7 @@
     <body>
         <div class="header-container">
             <div class="header-content">
-              <h1>3DRBench: A Benchmark for 3D Reasoning in Visual Question Answering</h1>
+              <h1>3DRBench</h1>
               <h3>Technical Report</h3>
               <p>
                 <a href="#" target="_blank" style="text-decoration: none;">Zixuan Wu<sup>1,2</sup></a> &emsp;
@@ -64,9 +65,10 @@
                 <a href="https://beckschen.github.io" target="_blank" style="text-decoration: none;">Jieneng Chen<sup>1</sup></a> &emsp;
                 <a href="https://www.cs.jhu.edu/~ayuille/" target="_blank" style="text-decoration: none;">Alan Yuille<sup>1</sup></a>
                 <br>
-                <br>
-                <a href="https://www.jhu.edu" target="_blank" style="text-decoration: none;"><sup>1</sup>Johns Hopkins University</a> &emsp;
-                <a href="https://www.wellesley.edu" target="_blank" style="text-decoration: none;"><sup>2</sup>Wellesley College</a>
+                <!-- <a href="https://www.jhu.edu" target="_blank" style="text-decoration: none;"><sup>1</sup>Johns Hopkins University</a> &emsp;
+                <a href="https://www.wellesley.edu" target="_blank" style="text-decoration: none;"><sup>2</sup>Wellesley College</a> -->
+                <sup>1</sup>Johns Hopkins University &emsp;
+                <sup>2</sup>Wellesley College
               </p>
               <div class="button-container">
                 <a href="https://arxiv.org/abs/2407.13094" class="button" target="_blank">arXiv</a>
@@ -80,16 +82,15 @@
             <nav>
                 <h4>Contents</h4>
                 <div><a href="#data">RCAD and Feint6K</a></div>
-                <div><a href="#key-findings">Key Findings</a></div>
-                <div><a href="#llm-teacher">LLM-Teacher</a></div>
+                <div><a href="#explore">Explore 3DRBench</a></div>
                 <div><a href="#misc">Miscellaneous</a></div>
             </nav>
         </d-contents>
 
         <p style="text-align: justify;">
-            We propose a novel evaluation task for video-text understanding, namely <em>retrieval from counterfactually augmented data</em> (RCAD), and a new <strong>Feint6K</strong> dataset, to better assess the capabilities of current video-text models and understand their limitations. To succeed on our new evaluation task, models must derive a comprehensive understanding of the video from cross-frame reasoning. Analyses show that previous video-text foundation models can be easily fooled by counterfactually augmented data and are far behind human-level performance. From our experiments on RCAD, we identify a key limitation of current contrastive approaches on video-text data and introduce <strong>LLM-teacher</strong>, a more effective approach to learn action semantics by leveraging knowledge obtained from a pretrained large language model.
+            Abstract here.
         </p>
-        <p>
+        <!-- <p>
             <d-figure>
                 <figure>
                     <img src="assets/images/teaser.png" alt="Our RCAD" style="max-height: 360px; object-fit: contain;">
@@ -98,9 +99,9 @@
                     </figcaption>
                 </figure>
             </d-figure>
-        </p>
+        </p> -->
 
-        <section id="data">
+        <!-- <section id="data">
             <h2 id="data">RCAD and Feint6K</h2>
             <p style="text-align: justify;">
                 Retrieval from counterfactually augmented data (RCAD) is a variant of the standard video-to-text retrieval. Given a video sequence and a list of candidate captions, the model needs to retrieve the caption that best matches the semantics in the video.
@@ -147,19 +148,44 @@
             <p style="text-align: justify;">
                 We employ the same group of annotators to establish a human-level baseline on our Feint6K dataset. Analyzing the human performance serves two goals: (i) verifying the legitimacy of our Feint6K dataset -- if each question is answerable and has one unique answer, and (ii) comparing the state-of-the-art video-text models with human-level performance.
             </p>
+        </section> -->
+
+        <section id="explore">
+            <h2 id="explore">Explore 3DRBench</h2>
+            <p style="text-align: justify;">
+                <div class="button-container">
+                    <a href="javascript:shuffle();" class="button" id="shuffle_button">Display random</a>
+                </div>
+            </p>
+            <p style="text-align: justify;">
+                <b>Question:</b> <span id="explore_question">Consider the real-world height of the objects. Which is higher, the umbrella or the traffic light?</span>
+            </p>
+            <p style="text-align: justify;">
+                <b>Answer:</b> <span id="explore_answer">traffic light</span>
+            </p>
+            <p style="text-align: justify;">
+                <b>Question type:</b> <span id="explore_type">higher</span>
+            </p>
+            <p>
+                <d-figure>
+                    <figure>
+                        <img src="https://farm4.staticflickr.com/3153/2678335893_826003d08a_z.jpg" alt="" style="max-height: 360px; object-fit: contain;" id="explore_img">
+                    </figure>
+                </d-figure>
+            </p>
         </section>
 
         <section id="misc">
             <h2 id="misc">Miscellaneous</h2>
-            <p style="text-align: justify;">
+            <!-- <p style="text-align: justify;">
                 All data collection and experiments in this work were conducted at JHU.
-            </p>
+            </p> -->
             <p style="text-align: justify;">
-                <b>License and agreement.</b> By accessing and using our Feint6K dataset, you agree to follow the terms of access specified in our <a href="https://github.com/facebookresearch/feint6k?tab=License-1-ov-file">license file</a>, our <a href="https://opensource.fb.com/legal/terms/">terms of use</a>, and our <a href="https://opensource.facebook.com/legal/privacy">privacy policy</a>.
+                <b>License and agreement.</b> By accessing and using our 3DRBench, you agree to follow the terms of access specified in our <a href="https://github.com/facebookresearch/feint6k?tab=License-1-ov-file">license file</a>, our <a href="https://opensource.fb.com/legal/terms/">terms of use</a>, and our <a href="https://opensource.facebook.com/legal/privacy">privacy policy</a>.
             </p>
-            <p style="text-align: justify;">
+            <!-- <p style="text-align: justify;">
                 <b>Ethics.</b> We follow the ethics guidelines of ECCV and obtained Institutional Review Board (IRB) approvals prior to the start of our work. We described potential risks to the annotators, such as being exposed to inappropriate videos from public video datasets <d-cite key="xu2016msr,wang2019vatex"></d-cite>, and explained the purpose of the study and how the collected data will be used. All annotators agreed to join this project voluntarily and were paid by a fair amount as required at our institution.
-            </p>
+            </p> -->
         </section>
 
         </d-article>
@@ -194,8 +220,6 @@
         <script src="contents_bar.js"></script>
 
         <script>
-
-
             window.dataLayer = window.dataLayer || [];
 
             function initSlider(sliderId) {
@@ -214,7 +238,6 @@
                 }).mount();
             }
 
-
             // Initialize sliders
             var poseSlider = initSlider('#pose-slider');
             var carvingSlider = initSlider('#carving-slider');
@@ -232,12 +255,22 @@
                 lalaland: ['0000', '0001', '0003', '0008', '0009'],
             };
 
+            // 3DRBench code
+            function shuffle() {
+                var num = Math.floor(Math.random() * (imagesArr.length+1));
+                document.getElementById('explore_img').src = imagesArr[num];
+                document.getElementById('explore_question').innerHTML = promptArr[num];
+                document.getElementById('explore_answer').innerHTML = answerArr[num];
+                document.getElementById('explore_type').innerHTML = relationArr[num];
+            }
+
             // Function to display and refresh the Carving slider
             function showCarvingSlider() {
                 var carvingContainer = document.getElementById('Carving');
                 carvingContainer.style.display = 'block';
                 carvingSlider.refresh();
             }
+
             function showCompositionSlider() {
                 var carvingContainer = document.getElementById('Composition');
                 carvingContainer.style.display = 'block';
@@ -256,8 +289,6 @@
                 additionSlider.refresh();
             }
 
-
-
             function showRotationSlider() {
                 var carvingContainer = document.getElementById('Rotation');
                 carvingContainer.style.display = 'block';
@@ -269,7 +300,6 @@
                 carvingContainer.style.display = 'block';
                 poseSlider.refresh();
             }
-
 
             function showCategory(categoryName) {
                 if (categoryName === 'Carving') {
@@ -303,6 +333,7 @@
                 // Add 'active' class to the clicked button
                 event.currentTarget.classList.add('active');
             }
+
             function rotate(index, name) {
                 var imagePath = `assets/images/pose_rotation/${name}/pose0/${imageAngles[name][index]}.jpg`;
                 var rotateElements = document.getElementsByClassName('rotate-' + name);
@@ -322,8 +353,6 @@
                 }
             }
 
-
-
             function updateRotation(direction, model) {
                 var currentRotationElement = document.getElementById('rotation' + model);
                 var currentRotationIndex = parseInt(currentRotationElement.value);
@@ -337,12 +366,10 @@
 
                 var rotationDisplays = document.getElementsByClassName("rotationDisplay" + model);
 
-
                 for (var i = 0; i < rotationDisplays.length; i++) {
                     rotationDisplays[i].textContent = "Rotation: " + 36 * imageAngles[model][currentRotationIndex] + "°";
                 }
             }
-
 
             function updateAddition(direction, model) {
                 var currentAdditionElement = document.getElementById('addition' + model);
@@ -362,8 +389,6 @@
                 for (var j=0; j < additionDisplay.length; j++) {
                     additionDisplay[j].textContent = "Number of Objects: " + currentAdditionIndex;
                 }
-
-
             }
 
             function addObject(num, name) {
@@ -375,13 +400,10 @@
                     allMesh[i].src = meshPath;
                     allImg[i].src = imagePath;
                 }
-
                 additionSlider.refresh();
             }
 
-
         </script>
-
 
     </body>
 </html>
